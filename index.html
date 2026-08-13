@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Home Page</title>
+</head>
+<body>
+<h1>Hello There!!</h1>
+<div>Please choose one of these URLs:</div>
+<ul>
+    <li><a href="dev-journey-conversion.html">Dev-Journey Conversion Test Page</a></li>
+    <li><a href="qa-journey-conversion.html">QA-Journey Conversion Test Page</a></li>
+</ul>
+<input type="text" id="urlInput" placeholder="Enter URL here" />
+<button onclick="goToUrl()">Go</button>
+<script>
+    function goToUrl() {
+        let url = document.getElementById("urlInput").value.trim();
+
+        // Add https:// if user didn't type http:// or https://
+        if (url && !url.startsWith("http://") && !url.startsWith("https://")) {
+            url = "https://" + url;
+        }
+
+        if (url) {
+            window.dispatchEvent(
+                new CustomEvent("zeals:start-trace", {
+                    detail: { url }
+                })
+            );
+
+            window.location.href = url;
+        } else {
+            alert("Please enter a URL.");
+        }
+    }
+</script>
+</body>
+</html>
