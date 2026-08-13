@@ -17,9 +17,9 @@
     // This object will be sent as top-level `client_metadata`
     // in the POST /event request body.
     script.dataset.clientMetadata = JSON.stringify({
-        customer_id: "12345",
+        customer_id: "1234567890",
         plan: "premium",
-        source: "dev-test-page"
+        source: "dev-test-page-client-metadata"
     });
 
     document.getElementsByTagName('head')[0].appendChild(script);
