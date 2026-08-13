@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Conversion Test Page</title>
+</head>
+<body>
+<h1>[Dev-Journey] Conversion Client Metadata Test Page</h1>
+
+<!-- Conversion Tracking Code -->
+<script>
+    var script = document.createElement('script');
+    script.defer = true;
+    script.src = "https://static.jp.jo-team.dev.zeals.cloud/conversion/conversion_client_metadata.js";
+
+    // This object will be sent as top-level `client_metadata`
+    // in the POST /event request body.
+    script.dataset.clientMetadata = JSON.stringify({
+        customer_id: "12345",
+        plan: "premium",
+        source: "dev-test-page"
+    });
+
+    document.getElementsByTagName('head')[0].appendChild(script);
+</script>
+<!-- End of Conversion Tracking Code -->
+</body>
+</html>
